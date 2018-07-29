@@ -65,3 +65,8 @@ kubectl get pods -l app=myapp
 ## |   Warning  Failed                 13s (x6 over 1m)  kubelet, minikube  Error: container has runAsNonRoot and image will run as root
 ## `-----------
 ```
+
+- Clean up
+```
+kubectl delete -f ./kubernetes.yaml
+```

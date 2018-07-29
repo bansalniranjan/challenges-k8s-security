@@ -19,7 +19,7 @@ See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubern
 | Name                      | Summary          |
 |---------------------------+------------------|
 | Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
-| Set runAsNonRoot as False | [[run-as-nonroot][run-as-nonroot]]   |
+| Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
 ** Scan Docker Image
 ** More Resources
 #+BEGIN_EXAMPLE

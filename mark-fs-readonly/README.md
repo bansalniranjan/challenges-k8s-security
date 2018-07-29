@@ -23,3 +23,8 @@ kubectl get pods -l app=myapp
 ## | drwx------    2 root     root        4.0K Jul 16 19:40 root
 ## `-----------
 ```
+
+- Clean up
+```
+kubectl delete -f ./kubernetes.yaml
+```
