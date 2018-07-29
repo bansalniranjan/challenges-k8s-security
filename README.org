@@ -16,10 +16,10 @@
 
 See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubernetes][denny-kubernetes]]
 ** Security deployemnt 
-| Name                      | Summary |
-|---------------------------+---------|
-| Make filesystem read-only |         |
-| Set runAsNonRoot as False |         |
+| Name                      | Summary          |
+|---------------------------+------------------|
+| Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
+| Set runAsNonRoot as False |                  |
 ** Scan Docker Image
 ** More Resources
 #+BEGIN_EXAMPLE
