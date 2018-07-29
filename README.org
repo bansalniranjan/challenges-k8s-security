@@ -7,15 +7,28 @@
 #+AUTHOR: dennyzhang.com (denny@dennyzhang.com)
 #+OPTIONS: toc:2 \n:t ^:nil creator:nil d:nil
 * Kubernetes Security Pratice
+#+BEGIN_HTML
+<a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
+<a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="http://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
+<a href="https://github.com/DennyZhang"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+#+END_HTML
 ** Security deployemnt 
-| Name                        | Summary   |
-| :-------------------------- | --------- |
-| Make filesystem read-only   |           |
-| Set runAsNonRoot as False   |           |
-** Scan Image
-** misc                                                            :noexport:
-https://speakerdeck.com/thesandlord/kubernetes-best-practices?slide=20
-
-https://speakerdeck.com/thesandlord/kubernetes-best-practices?slide=18
-
+| Name                      | Summary |
+|---------------------------+---------|
+| Make filesystem read-only |         |
+| Set runAsNonRoot as False |         |
+** Scan Docker Image
+** More Resources
+#+BEGIN_EXAMPLE
 https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
+
+https://speakerdeck.com/thesandlord/kubernetes-best-practices
+#+END_EXAMPLE
+
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
+
+<a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
+
