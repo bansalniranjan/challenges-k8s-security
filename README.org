@@ -1,0 +1,21 @@
+#+STARTUP: overview customtime noalign logdone hidestars
+#+TAGS: ARCHIVE(a) WORK(w) LIFE(l) EMACS(e) IMPORTANT(i) Difficult(d) Communication(c) RECOMMENDATE(r) Tool(t) Habit(h) noexport(n) Share (s) BLOG(b)
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+DRAWERS: HIDDEN CODE CONF EMAIL WEBPAGE SNIP
+#+PRIORITIES: A D C
+#+ARCHIVE: %s_done::** Finished Tasks
+#+AUTHOR: dennyzhang.com (denny@dennyzhang.com)
+#+OPTIONS: toc:2 \n:t ^:nil creator:nil d:nil
+* Kubernetes Security Pratice
+** Security deployemnt 
+| Name                        | Summary   |
+| :-------------------------- | --------- |
+| Make filesystem read-only   |           |
+| Set runAsNonRoot as False   |           |
+** Scan Image
+** misc                                                            :noexport:
+https://speakerdeck.com/thesandlord/kubernetes-best-practices?slide=20
+
+https://speakerdeck.com/thesandlord/kubernetes-best-practices?slide=18
+
+https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
