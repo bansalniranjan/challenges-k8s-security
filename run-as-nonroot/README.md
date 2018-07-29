@@ -1,6 +1,6 @@
 https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
-- Deploy one pod with root filesystem as readonly
+- Deploy one pod with runAsNonRoot as true
 ```
 kubectl apply -f ./kubernetes.yaml
 kubectl get pods -l app=myapp
