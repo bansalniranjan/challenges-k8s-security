@@ -10,7 +10,7 @@ kubectl get pods -l app=myapp
 ```
 # As we can see, /root/a.txt can't be created, because /root is readonly
 ## ,-----------
-## | bash-3.2$ kubectl exec -it myapp-pod  -n my-test sh
+## | bash-3.2$ kubectl exec -it myapp-pod sh
 ## | / # touch /root/a.txt
 ## | touch /root/a.txt
 ## | touch: /root/a.txt: Read-only file system
@@ -21,6 +21,5 @@ kubectl get pods -l app=myapp
 ## | / # ls -lth / | grep "root$"
 ## | ls -lth / | grep "root$"
 ## | drwx------    2 root     root        4.0K Jul 16 19:40 root
-## | / # 
 ## `-----------
 ```
