@@ -12,7 +12,7 @@
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:   
 #+LINK_HOME: 
-* Kubernetes Security Pratice
+* Summary
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
 <a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
@@ -21,14 +21,15 @@
 #+END_HTML
 
 See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubernetes][denny-kubernetes]]
-** Security deployemnt 
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* Security deployemnt 
 | Name                      | Summary          |
 |---------------------------+------------------|
 | Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
 | Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
-** Scan Docker Image
-** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** More Resources                                           :noexport:
+* Scan Docker Image
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* More Resources
 #+BEGIN_EXAMPLE
 https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
