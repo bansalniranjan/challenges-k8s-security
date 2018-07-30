@@ -20,6 +20,12 @@
 <a href="https://github.com/DennyZhang"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 #+END_HTML
 
+#+BEGIN_EXAMPLE
+<a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
+#+END_EXAMPLE
+
+File me [[https://github.com/DennyZhang/kubernetes-security-practice/issues][Issues]] or star [[https://github.com/DennyZhang/kubernetes-security-practice][this repo]].
+
 See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubernetes][denny-kubernetes]]
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * Security deployemnt 
@@ -30,11 +36,9 @@ See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubern
 * Scan Docker Image
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * More Resources
-#+BEGIN_EXAMPLE
 https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
 https://speakerdeck.com/thesandlord/kubernetes-best-practices
-#+END_EXAMPLE
 
 #+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
