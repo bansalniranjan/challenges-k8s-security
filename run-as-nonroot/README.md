@@ -3,7 +3,7 @@
 
 By default node image will create a non-root user (node)
 
-But in the default Dockerfile, it would still be root. (See [https://github.com/nodejs/docker-node/blob/e3ec2111af089e31321e76641697e154b3b6a6c3/8/alpine/Dockerfile#L5](here))
+But in the default Dockerfile, it would still be root. (See [here](https://github.com/nodejs/docker-node/blob/e3ec2111af089e31321e76641697e154b3b6a6c3/8/alpine/Dockerfile#L5))
 
 Here we build a docker image, changing default user. (See [Dockerfile](Dockerfile))
 
