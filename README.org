@@ -6,6 +6,7 @@
 #+ARCHIVE: %s_done::** Finished Tasks
 #+AUTHOR: dennyzhang.com (denny@dennyzhang.com)
 #+OPTIONS: toc:2 \n:t ^:nil creator:nil d:nil
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
 * Kubernetes Security Pratice
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
@@ -21,7 +22,8 @@ See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubern
 | Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
 | Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
 ** Scan Docker Image
-** More Resources
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
+** More Resources                                                  :noexport:
 #+BEGIN_EXAMPLE
 https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
@@ -33,4 +35,3 @@ https://speakerdeck.com/thesandlord/kubernetes-best-practices
 
 <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
-
