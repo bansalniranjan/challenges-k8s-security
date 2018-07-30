@@ -1,16 +1,12 @@
-https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
 - Build and push docker image
 
 By default node image will create a non-root user (node)
 
-https://github.com/nodejs/docker-node/blob/e3ec2111af089e31321e76641697e154b3b6a6c3/8/alpine/Dockerfile#L5
+But in the default Dockerfile, it would still be root. (See [https://github.com/nodejs/docker-node/blob/e3ec2111af089e31321e76641697e154b3b6a6c3/8/alpine/Dockerfile#L5](here))
 
-But in the default Dockerfile, it would still be root.
+Here we build a docker image, changing default user. (See [Dockerfile](Dockerfile))
 
-Here we build a docker image, changing default user
-
-See [Dockerfile](Dockerfile)
 ```
 docker build --no-cache -t denny/node:alphine --rm=true .
 docker push denny/node:alphine
@@ -111,3 +107,8 @@ kubectl describe pod myapp-pod
 ```
 kubectl delete -f ./kubernetes.yaml
 ```
+
+
+Useful links:
+
+https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
