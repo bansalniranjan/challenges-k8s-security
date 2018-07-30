@@ -1,12 +1,13 @@
 #+STARTUP: overview customtime noalign logdone hidestars
-#+TAGS: ARCHIVE(a) WORK(w) LIFE(l) EMACS(e) IMPORTANT(i) Difficult(d) Communication(c) RECOMMENDATE(r) Tool(t) Habit(h) noexport(n) Share (s) BLOG(b)
-#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+DRAWERS: HIDDEN CODE CONF EMAIL WEBPAGE SNIP
-#+PRIORITIES: A D C
-#+ARCHIVE: %s_done::** Finished Tasks
-#+AUTHOR: dennyzhang.com (denny@dennyzhang.com)
-#+OPTIONS: toc:2 \n:t ^:nil creator:nil d:nil
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
 #+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+PRIORITIES: A D C
+#+OPTIONS: H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+LINK_UP:   
+#+LINK_HOME: 
 * Kubernetes Security Pratice
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
@@ -23,7 +24,7 @@ See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubern
 | Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
 ** Scan Docker Image
 ** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** More Resources                                                  :noexport:
+** More Resources                                           :noexport:
 #+BEGIN_EXAMPLE
 https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
