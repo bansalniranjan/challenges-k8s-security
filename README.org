@@ -29,7 +29,10 @@ https://kubernetes.io/docs/reference/access-authn-authz/
 |---------------------------+------------------|
 | Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
 | Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
-*** Use LDAP to security kubectl and k8s API
+** Kubernetes API Security
+Users access the API using kubectl, client libraries, or by making REST requests. 
+
+[[https://d33wubrfki0l68.cloudfront.net/673dbafd771491a080c02c6de3fdd41b09623c90/50100/images/docs/admin/access-control-overview.svg]]
 ** Docker security
 | Name                       | Summary                                          |
 |----------------------------+--------------------------------------------------|
@@ -68,3 +71,7 @@ https://www.dennyzhang.com/neuvector_container
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO What is Cluster Federation?                                 :noexport:
 https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/resource-metrics-api.md#scheduler
+* HALF quiz: how many ways to access api?                          :noexport:
+https://kubernetes.io/docs/reference/access-authn-authz/
+
+Users access the API using kubectl, client libraries, or by making REST requests.
