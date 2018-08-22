@@ -20,11 +20,14 @@ See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubern
  https://kubernetes.io/docs/reference/access-authn-authz/node/
 *** Concepts: ABAC Authorization
  https://kubernetes.io/docs/reference/access-authn-authz/abac/
+*** Concepts: RBAC Authorization
+https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 *** Security deployemnt 
 | Name                      | Summary          |
 |---------------------------+------------------|
 | Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
 | Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
+*** Use LDAP to security kubectl and k8s API
 ** Docker security
 *** Scan Docker Image
 ** Kubernetes Commercial Support
