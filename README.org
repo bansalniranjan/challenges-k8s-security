@@ -1,18 +1,69 @@
-* Summary
+* Kubernetes Security                                               :Concept:
+:PROPERTIES:
+:type:     security
+:END:
+
+Blog URL: https://kubernetes.dennyzhang.com/challenges-k8s-security, Category: [[https://kubernetes.dennyzhang.com/category/concept][concept]]
+
 #+BEGIN_HTML
-<a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
-<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="http://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
-<a href="https://github.com/DennyZhang"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/challenges-k8s-security"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+
+<div id="the whole thing" style="overflow: hidden;">
+<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+</div>
 
 <br/><br/>
-
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
-
 File me [[https://github.com/DennyZhang/kubernetes-security-practice/issues][Issues]] or star [[https://github.com/DennyZhang/kubernetes-security-practice][this repo]].
 
 See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubernetes][denny-kubernetes]]
+** Questions
+*** How sysctl works for Pod without passing --privileged flag
+https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#setting-sysctls-for-a-pod
+*** Audit: who has deleted my namespace/pods?
+
+kubernetes auditing: Create auditing events and send to log backend(fluentd by default)
+
+https://kubernetes.io/docs/tasks/debug-application-cluster/audit/
+
+#+BEGIN_EXAMPLE
+Kubernetes auditing allows cluster administrator to answer the following questions:
+
+- what happened?
+- when did it happen?
+- who initiated it?
+- on what did it happen?
+- where was it observed?
+- from where was it initiated?
+- to where was it going?
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Kube-apiserver performs auditing. 
+
+Each request on each stage of its execution generates an event, which is then pre-processed according to a certain policy and written to a backend.
+
+Kube-apiserver out of the box provides two backends:
+
+- Log backend, which writes events to a disk
+- Webhook backend, which sends events to an external API
+#+END_EXAMPLE
+
+** General Security
+- Create security functions: what should be controlled
+- Map security functions into roles
+- Implement security control to avoid compromise of the roles
+** Concept: PodSecurityPolicy
+https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+
+PodSecurityPolicy defines a set of conditions that a pod must run with in order to be accepted into the system
+
+https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+** Enable network policy with Calico CNI
 ** Kubernetes Built-in Security
 Links:
 https://kubernetes.io/docs/reference/access-authn-authz/
@@ -27,8 +78,8 @@ https://kubernetes.io/docs/reference/access-authn-authz/
 *** Security deployemnt 
 | Name                      | Summary          |
 |---------------------------+------------------|
-| Make filesystem read-only | [[mark-fs-readonly][mark-fs-readonly]] |
-| Set runAsNonRoot as True | [[run-as-nonroot][run-as-nonroot]]   |
+| Make filesystem read-only | [[https://github.com/dennyzhang/challenges-k8s-security/tree/master/mark-fs-readonly][mark-fs-readonly]] |
+| Set runAsNonRoot as True  | [[https://github.com/dennyzhang/challenges-k8s-security/tree/master/run-as-nonroot][run-as-nonroot]]   |
 ** Kubernetes Federation
 Links:
 https://kubernetes.io/docs/concepts/cluster-administration/federation/
@@ -57,22 +108,20 @@ https://www.dennyzhang.com/neuvector_container
 
  <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
  #+END_HTML
-
-* org-mode configuration                                           :noexport:
-#+STARTUP: overview customtime noalign logdone showall
-#+TITLE:  Kubernetes Security Pratice
-#+DESCRIPTION: 
-#+KEYWORDS: 
-#+AUTHOR: Denny Zhang
-#+EMAIL:  denny@dennyzhang.com
-#+TAGS: noexport(n)
-#+PRIORITIES: A D C
-#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
-#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+EXPORT_EXCLUDE_TAGS: exclude noexport
-#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+LINK_UP:   
-#+LINK_HOME: 
+** org-mode configuration                                          :noexport:
+ #+STARTUP: overview customtime noalign logdone showall
+ #+DESCRIPTION: 
+ #+KEYWORDS: 
+ #+AUTHOR: Denny Zhang
+ #+EMAIL:  denny@dennyzhang.com
+ #+TAGS: noexport(n)
+ #+PRIORITIES: A D C
+ #+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+ #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+ #+EXPORT_EXCLUDE_TAGS: exclude noexport
+ #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+ #+LINK_UP:   
+ #+LINK_HOME: 
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO What is Cluster Federation?                                 :noexport:
 https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/resource-metrics-api.md#scheduler
