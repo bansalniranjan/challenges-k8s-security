@@ -53,6 +53,19 @@ Kube-apiserver out of the box provides two backends:
 - Webhook backend, which sends events to an external API
 #+END_EXAMPLE
 
+** Kubernetes Security Scan Tool
+#+BEGIN_EXAMPLE
+For k8s security, I love PodSecurity. But apparently best practices will be violated for many reasons. I'm looking for k8s security scan tools like docker-bench-security for docker.
+
+Found kube-bench in k8s. Anyone tried this one? And do you have more recommendations?
+
+https://github.com/aquasecurity/kube-bench
+
+https://dev.to/petermbenjamin/kubernetes-security-best-practices-hlk
+
+https://github.com/docker/docker-bench-security
+#+END_EXAMPLE
+
 ** General Security
 - Create security functions: what should be controlled
 - Map security functions into roles
@@ -134,3 +147,4 @@ Users access the API using kubectl, client libraries, or by making REST requests
 https://kubernetes.io/docs/reference/access-authn-authz/
 
 Authentication modules include Client Certificates, Password, and Plain Tokens, Bootstrap Tokens, and JWT Tokens (used for service accounts).
+* TODO get cloud security cheatsheet: https://github.com/petermbenjamin/The-Security-Handbook :noexport:
