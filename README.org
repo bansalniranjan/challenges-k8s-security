@@ -20,7 +20,13 @@ Blog URL: https://kubernetes.dennyzhang.com/challenges-k8s-security, Category: [
 File me [[https://github.com/DennyZhang/kubernetes-security-practice/issues][Issues]] or star [[https://github.com/DennyZhang/kubernetes-security-practice][this repo]].
 
 See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubernetes][denny-kubernetes]]
+** Summary
+| Name                | Summary                                                           |
+|---------------------+-------------------------------------------------------------------|
+| [[https://kubernetes.io/docs/tutorials/clusters/apparmor/][AppArmor]]            | a Linux kernel security module: reduce application attack surface |
+| [[https://kubernetes.io/docs/concepts/policy/pod-security-policy/][Pod Security Policy]] | enable fine-grained authorization of pod creation and updates.    |
 ** Questions
+*** Why /healthz can quit Pod?
 *** How sysctl works for Pod without passing --privileged flag
 https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#setting-sysctls-for-a-pod
 *** Audit: who has deleted my namespace/pods?
@@ -52,6 +58,14 @@ Kube-apiserver out of the box provides two backends:
 - Log backend, which writes events to a disk
 - Webhook backend, which sends events to an external API
 #+END_EXAMPLE
+** [#A] Concept: PodSecurityPolicy
+https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+
+https://gist.github.com/tallclair/11981031b6bfa829bb1fb9dcb7e026b0
+
+PodSecurityPolicy defines a set of conditions that a pod must run with in order to be accepted into the system
+
+https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 
 ** Kubernetes Security Scan Tool
 #+BEGIN_EXAMPLE
@@ -70,12 +84,6 @@ https://github.com/docker/docker-bench-security
 - Create security functions: what should be controlled
 - Map security functions into roles
 - Implement security control to avoid compromise of the roles
-** Concept: PodSecurityPolicy
-https://kubernetes.io/docs/concepts/policy/pod-security-policy/
-
-PodSecurityPolicy defines a set of conditions that a pod must run with in order to be accepted into the system
-
-https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 ** Enable network policy with Calico CNI
 ** Kubernetes Built-in Security
 Links:
@@ -148,3 +156,10 @@ https://kubernetes.io/docs/reference/access-authn-authz/
 
 Authentication modules include Client Certificates, Password, and Plain Tokens, Bootstrap Tokens, and JWT Tokens (used for service accounts).
 * TODO get cloud security cheatsheet: https://github.com/petermbenjamin/The-Security-Handbook :noexport:
+* TODO Blog: Security Your Pod In K8S                              :noexport:
+** What the problems are?
+** pod security policy
+** least privledge
+** scan tools
+** Features I'm looking for: volume security policy, IDS
+** AppArmor
