@@ -22,21 +22,50 @@ File me [[https://github.com/DennyZhang/kubernetes-security-practice/issues][Iss
 
 See more Kubernetes sharing from Denny: [[https://github.com/topics/denny-kubernetes][denny-kubernetes]]
 ** Summary
-| Name                                 | Summary                                                           |
-|--------------------------------------+-------------------------------------------------------------------|
-| [[https://kubernetes.io/docs/tutorials/clusters/apparmor/][AppArmor]]                             | a Linux kernel security module: reduce application attack surface |
-| [[https://kubernetes.io/docs/concepts/policy/pod-security-policy/][Pod Security Policy]]                  | enable fine-grained authorization of pod creation and updates.    |
-| Container security scan tools        |                                                                   |
-| [[https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/][Kubelet authentication/authorization]] |                                                                   |
-| Kubernetes API Security              |                                                                   |
-| Commerical security scan tools       | [[https://www.dennyzhang.com/neuvector_container][neuvector]]                                                         |
+| Name                                 | Summary                                                                           |
+|--------------------------------------+-----------------------------------------------------------------------------------|
+| Kubernetes RBAC                      | Kubernetes API Security                                                           |
+| Admission Controls                   |                                                                                   |
+| [[https://kubernetes.io/docs/concepts/policy/pod-security-policy/][Pod Security Policy]]                  | enable fine-grained authorization of pod creation and updates.                    |
+| Network security policy              | a specification of how groups of pods are allowed to communicate with each other. |
+| [[http://man7.org/linux/man-pages/man7/capabilities.7.html][Linux capabilities]]                   | Allow you to break apart the power of root into smaller groups of privileges      |
+| SElinux                              |                                                                                   |
+| [[https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-authentication-authorization/][Kubelet authentication/authorization]] |                                                                                   |
+| [[https://kubernetes.io/docs/tutorials/clusters/apparmor/][AppArmor]]                             | a Linux kernel security module: reduce application attack surface                 |
+| kubernetes scan tools                | [[https://kubesec.io/][kubesec]], [[https://github.com/aquasecurity/kube-bench][kube-bench]], [[https://github.com/aquasecurity/kube-hunter][kube-hunter]]                                                  |
+| Sandboxed Pods & gVisor              |                                                                                   |
+| Container security scan tools        |                                                                                   |
+| Commerical security scan tools       | [[https://www.dennyzhang.com/neuvector_container][neuvector]]                                                                         |
+
+** Links for K8S Security
+| Name                                   | Summary |
+|----------------------------------------+---------|
+| [[https://github.com/kubernetes/community/blob/master/contributors/design-proposals/auth/security.md][Design: Security in Kubernetes]]         |         |
+| [[https://github.com/kubernetes/community/blob/master/contributors/design-proposals/storage/volume-ownership-management.md][Design: Volume plugins and idempotency]] |         |
+| [[https://github.com/kubernetes/community/blob/master/contributors/design-proposals/auth/security_context.md][Design: Security Contexts]]              |         |
+| https://kubernetes-security.info/      |         |
+
+** Source Code
+| Name                                     | Summary                                                                      |
+|------------------------------------------+------------------------------------------------------------------------------|
+| Network security design doc              | [[https://github.com/kubernetes/community/blob/2780e1b37cac622b0d622208b246c60bfefd171c/contributors/design-proposals/network/network-policy.md][design-proposals/network/network-policy.md]]                                   |
+| PodSecurity - PodSecurityContextAccessor | [[https://github.com/kubernetes/kubernetes/blob/v1.11.3/pkg/securitycontext/accessors.go][pks/securitycontext/accessors.go]], [[https://github.com/kubernetes/kubernetes/tree/v1.11.3/pkg/security/podsecuritypolicy/provider.go][pkg/security/podsecuritypolicy/provider.go]] |
+| kubelet dockershim                       | [[https://github.com/kubernetes/kubernetes/blob/v1.11.3/pkg/kubelet/dockershim/security_context_test.go][pkg/kubelet/dockershim/security_context_test.go]]                              |
+| kubelet/kuberuntime/security_context.go  | [[https://github.com/kubernetes/kubernetes/blob/v1.11.3/pkg/kubelet/kuberuntime/security_context.go][pkg/kubelet/kuberuntime/security_context.go]]                                  |
+
 ** Questions
+*** Why network policy is implemented in CNI, instead of kube-proxy?
+Because the two pods may be in the same worker node?
+*** securityContext vs pod security policy?
+*** lifecycle management of client certificate talking with apiserver
+https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/
 *** Why k8s switch from ABAC to RBAC?
 *** Why /healthz can quit Pod?
 *** How sysctl works for Pod without passing --privileged flag
 https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/#setting-sysctls-for-a-pod
+*** Difference between ipvs and iptable?
+*** What's netlink?
 *** Audit: who has deleted my namespace/pods?
-
 kubernetes auditing: Create auditing events and send to log backend(fluentd by default)
 
 https://kubernetes.io/docs/tasks/debug-application-cluster/audit/
@@ -63,6 +92,14 @@ Kube-apiserver out of the box provides two backends:
 - Log backend, which writes events to a disk
 - Webhook backend, which sends events to an external API
 #+END_EXAMPLE
+** DONE Questions
+   CLOSED: [2018-09-16 Sun 16:33]
+*** DONE How I check whether my network provider supports network policy?
+    CLOSED: [2018-09-16 Sun 16:33]
+https://kubernetes.io/docs/concepts/services-networking/network-policies/
+
+Network policies are implemented by the network plugin, so you must be using a networking solution which supports NetworkPolicy - simply creating the resource without a controller to implement it will have no effect.
+
 ** [#A] Concept: PodSecurityPolicy
 PodSecurityPolicy defines a set of conditions that a pod must run with in order to be accepted into the system
 
@@ -86,7 +123,8 @@ https://github.com/docker/docker-bench-security
 - Create security functions: what should be controlled
 - Map security functions into roles
 - Implement security control to avoid compromise of the roles
-** Enable network policy with Calico CNI
+** Network policy
+A number of networking plugins, including Calico, Romana and Weave Net, support using Network Policies.
 ** Kubernetes Built-in Security
 Links:
 https://kubernetes.io/docs/reference/access-authn-authz/
@@ -119,9 +157,11 @@ Users access the API using kubectl, client libraries, or by making REST requests
 
 *** Scan Docker Image
 ** More Resources
- https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
+https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/
 
- https://speakerdeck.com/thesandlord/kubernetes-best-practices
+https://speakerdeck.com/thesandlord/kubernetes-best-practices
+
+https://cloud.google.com/security/overview/whitepaper#a_global_network_with_unique_security_benefits
 
  #+BEGIN_HTML
  <a href="https://www.dennyzhang.com"><img align="right" width="201" height="268" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/denny_201706.png"></a>
@@ -165,3 +205,4 @@ Authentication modules include Client Certificates, Password, and Plain Tokens, 
 * TODO volume security                                             :noexport:
 * TODO kubectl namespace security                                  :noexport:
 * k8s dashboard security: https://github.com/kubernetes/dashboard/wiki/Access-control :noexport:
+* TODO micro-sementation simplifies network security               :noexport:
