@@ -168,20 +168,20 @@ https://cloud.google.com/security/overview/whitepaper#a_global_network_with_uniq
 
  <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
  #+END_HTML
-** org-mode configuration                                          :noexport:
- #+STARTUP: overview customtime noalign logdone showall
- #+DESCRIPTION: 
- #+KEYWORDS: 
- #+AUTHOR: Denny Zhang
- #+EMAIL:  denny@dennyzhang.com
- #+TAGS: noexport(n)
- #+PRIORITIES: A D C
- #+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
- #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
- #+EXPORT_EXCLUDE_TAGS: exclude noexport
- #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
- #+LINK_UP:   
- #+LINK_HOME: 
+* org-mode configuration                                           :noexport:
+#+STARTUP: overview customtime noalign logdone showall
+#+DESCRIPTION: 
+#+KEYWORDS: 
+#+AUTHOR: Denny Zhang
+#+EMAIL:  denny@dennyzhang.com
+#+TAGS: noexport(n)
+#+PRIORITIES: A D C
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_EXCLUDE_TAGS: exclude noexport
+#+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
+#+LINK_UP:   
+#+LINK_HOME: 
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO What is Cluster Federation?                                 :noexport:
 https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/resource-metrics-api.md#scheduler
